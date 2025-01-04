@@ -1,0 +1,5 @@
+.img-btn button {
+  background-color: var(--main-color) !important;
+  color: aqua !important;
+  text-decoration: none;
+}

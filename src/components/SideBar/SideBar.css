@@ -1,0 +1,48 @@
+.Side {
+  background-color: var(--main-color);
+  width: 20%;
+  height: 120vh;
+}
+.side-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.Side-links {
+  width: 90%; /* يجعل الحاوية تأخذ العرض الكامل */
+}
+
+.side-bar-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: end !important;
+  width: 100%; /* يجعل الرابط يأخذ العرض الكامل */
+  padding: 10px;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: var(--seconed-color);
+  text-decoration: none; /* إزالة التسطير أسفل النص */
+  transition: 0.3s;
+  border-radius: 11px;
+}
+
+.side-bar-link:hover {
+  color: var(--main-color);
+  background-color: var(--seconed-color); /* إضافة تأثير عند التمرير */
+}
+
+.Side .active {
+  background-color: var(--seconed-color);
+  color: var(--main-color);
+}
+
+.Side .active:hover {
+  color: var(--main-color);
+}
+
+.icon {
+  font-size: 24px;
+}
