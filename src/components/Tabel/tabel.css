@@ -1,5 +1,45 @@
-.img-btn button {
-  background-color: var(--main-color) !important;
-  color: aqua !important;
-  text-decoration: none;
+.img-btn {
+  display: none !important;
+}
+.image-upload-inpt {
+  padding: 30px 70px;
+  border: 2px dashed rgb(212, 212, 212);
+  border-radius: 12px;
+  margin-bottom: 50px;
+}
+.custom-label {
+  display: flex;
+  justify-content: center;
+  background-color: var(--main-color);
+  color: white;
+  padding: 15px 10px;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 16px;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+.popup-box {
+  position: relative;
+  width: 40%;
+}
+.cancel {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+.personal-inpts {
+  padding: 0px 30px;
+}
+.personal-inpts input {
+  width: 100%;
+  margin-bottom: 25px;
+}
+.circle-steps p {
+  font-size: 8px;
+}
+.preview-info p {
+  width: 50%;
+  margin-bottom: 10px;
 }

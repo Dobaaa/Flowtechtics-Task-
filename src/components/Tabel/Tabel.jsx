@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ItImage from "../../assets/man.png";
 import "./tabel.css";
+import { faImage } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PopupCircle from "../popupCircle/popupCircle";
 const Tabel = () => {
   const [employees, setEmployees] = useState([
     {
@@ -172,129 +175,106 @@ const Tabel = () => {
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-[400px]">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-[400px] popup-box">
             {step === 1 && (
               <>
                 <h2 className="text-lg font-bold mb-4">Personal Data</h2>
-                <div className="circle-steps flex justify-center  items-center">
-                  <div className="personal">
-                    <div className="fisrt-circle flex items-center gap-1">
-                      <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
-                      <hr className="border-t-2 border-blue-400 border-dashed w-[50px]" />
-                    </div>
-                    <p>personal data </p>
-                  </div>
-                  <div className="img">
-                    <div className="seconed-circle flex items-center gap-1">
-                      <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
-                      <hr className="border-t-2 border-blue-400 border-dashed w-[50px]" />
-                    </div>
-                    <p>image</p>
-                  </div>
-                  <div className="preview">
-                    <div className="third-circle flex">
-                      <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
-                    </div>
-                    <p>preview </p>
-                  </div>
-                </div>
-                <label htmlFor="name">
-                  name<span className="text-[var(--main-color)]">*</span>
-                </label>
-                <input
-                  id="name"
-                  type="text"
-                  name="name"
-                  placeholder="enter employee name"
-                  className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
-                  value={newEmployee.name}
-                  onChange={handleInputChange}
-                />
-                <label htmlFor="date">
-                  Start Date<span className="text-[var(--main-color)]">*</span>
-                </label>
-                <input
-                  id="date"
-                  type="date"
-                  name="startDate"
-                  className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
-                  value={newEmployee.startDate}
-                  onChange={handleInputChange}
-                />
-                <select
-                  name="role"
-                  className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
-                  value={newEmployee.role}
-                  onChange={handleInputChange}
-                >
-                  <option value="" disabled>
-                    Select Role
-                  </option>
-                  <option value="IT">IT</option>
-                  <option value="Software">Software</option>
-                  <option value="Data Entry">Data Entry</option>
-                </select>
+                <PopupCircle />
+                <div className="personal-inpts">
+                  <label htmlFor="name">
+                    name<span className="text-[var(--main-color)]">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="enter employee name"
+                    className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
+                    value={newEmployee.name}
+                    onChange={handleInputChange}
+                  />
+                  <label htmlFor="date">
+                    Start Date
+                    <span className="text-[var(--main-color)]">*</span>
+                  </label>
+                  <input
+                    id="date"
+                    type="date"
+                    name="startDate"
+                    className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
+                    value={newEmployee.startDate}
+                    onChange={handleInputChange}
+                  />
+                  <label htmlFor="date">
+                    Role
+                    <span className="text-[var(--main-color)]">*</span>
+                  </label>
+                  <select
+                    id="role"
+                    name="role"
+                    className="w-full p-2 mb-2 border rounded-2xl focus:outline-none mb-[25px]"
+                    value={newEmployee.role}
+                    onChange={handleInputChange}
+                  >
+                    <option value="" disabled>
+                      Select Role
+                    </option>
+                    <option value="IT">IT</option>
+                    <option value="Software">Software</option>
+                    <option value="Data Entry">Data Entry</option>
+                  </select>
 
-                <label htmlFor="email">
-                  E-mail
-                  <span className="text-[var(--main-color)]">*</span>
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
-                  value={newEmployee.email}
-                  onChange={handleInputChange}
-                  required
-                />
-                <label htmlFor="phone">
-                  Phone
-                  <span className="text-[var(--main-color)]">*</span>
-                </label>
-                <input
-                  id="phone"
-                  type="text"
-                  name="phone"
-                  placeholder="Phone"
-                  className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
-                  value={newEmployee.phone}
-                  onChange={handleInputChange}
-                />
+                  <label htmlFor="email">
+                    E-mail
+                    <span className="text-[var(--main-color)]">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
+                    value={newEmployee.email}
+                    onChange={handleInputChange}
+                    required
+                  />
+                  <label htmlFor="phone">
+                    Phone
+                    <span className="text-[var(--main-color)]">*</span>
+                  </label>
+                  <input
+                    id="phone"
+                    type="text"
+                    name="phone"
+                    placeholder="Phone"
+                    className="w-full p-2 mb-2 border rounded-2xl focus:outline-none"
+                    value={newEmployee.phone}
+                    onChange={handleInputChange}
+                  />
+                </div>
               </>
             )}
             {step === 2 && (
               <>
                 <h2 className="text-lg font-bold mb-4">Upload Image</h2>
-                <div className="circle-steps flex justify-center  items-center p-3">
-                  <div className="personal">
-                    <div className="fisrt-circle flex items-center gap-1">
-                      <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
-                      <hr className="border-t-2 border-blue-400 border-dashed w-[50px]" />
-                    </div>
-                    <p>personal data </p>
-                  </div>
-                  <div className="img">
-                    <div className="seconed-circle flex items-center gap-1">
-                      <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
-                      <hr className="border-t-2 border-blue-400 border-dashed w-[50px]" />
-                    </div>
-                    <p>image</p>
-                  </div>
-                  <div className="preview">
-                    <div className="third-circle flex">
-                      <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
-                    </div>
-                    <p>preview </p>
-                  </div>
+                <PopupCircle />
+                <div className="image-upload-inpt text-center">
+                  <FontAwesomeIcon
+                    icon={faImage}
+                    className="text-[var(--main-color)] text-2xl p-3"
+                  />
+                  <label htmlFor="file" className="custom-label">
+                    + Add image
+                  </label>
+                  <input
+                    id="file"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="w-full p-12 mb-4 border rounded img-btn "
+                  />
                 </div>
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  className="w-full p-12 mb-4 border rounded img-btn "
-                />
+
                 {newEmployee.img && (
                   <img
                     src={newEmployee.img}
@@ -306,36 +286,66 @@ const Tabel = () => {
             )}
             {step === 3 && (
               <>
-                <h2 className="text-lg font-bold mb-4">Preview</h2>
-                <p>
-                  <strong>Name:</strong> {newEmployee.name}
-                </p>
-                <p>
-                  <strong>Role:</strong> {newEmployee.role}
-                </p>
-                <p>
-                  <strong>Email:</strong> {newEmployee.email}
-                </p>
-                <p>
-                  <strong>Phone:</strong> {newEmployee.phone}
-                </p>
-                <p>
-                  <strong>Start Date:</strong> {newEmployee.startDate}
-                </p>
-                {newEmployee.img && (
-                  <img
-                    src={newEmployee.img}
-                    alt="Preview"
-                    className="w-20 h-20 rounded-full mx-auto"
-                  />
-                )}
+                <h2 className="text-lg font-bold mb-4">Add New employees </h2>
+                <div className="preview-info text-start  p-4 mb-6">
+                  <h3 className="bg-[var(--LightGray)] rounded-lg p-2 mb-2">
+                    Summary
+                  </h3>
+                  <p className="flex justify-between  items-center">
+                    <span>Employee:</span>
+                    <div
+                      className="flex items-center
+                    "
+                    >
+                      {newEmployee.img && (
+                        <img
+                          src={newEmployee.img}
+                          alt="Preview"
+                          className="w-10 h-10 rounded-full mx-auto"
+                        />
+                      )}
+                      {newEmployee.name}
+                    </div>
+                  </p>
+                  <p className="flex  items-center justify-between ">
+                    <span>Role:</span> {newEmployee.role}
+                  </p>
+                  <p className="flex  items-center justify-between">
+                    <span>E-mail:</span> {newEmployee.email}
+                  </p>
+                  <p className="flex  items-center justify-between">
+                    <span>Phone:</span> {newEmployee.phone}
+                  </p>
+                </div>
+                <div className="preview-option flex justify-between p-4 mb-8">
+                  <div className="date w-[40%]">
+                    <h4 className="bg-[var(--LightGray)] rounded-lg p-2">
+                      Date
+                    </h4>
+                    <p className="flex mt-2  items-center justify-between">
+                      <span>Start Date:</span> {newEmployee.startDate}
+                    </p>
+                  </div>
+                  <div className="active w-[50%]">
+                    <h4 className="bg-[var(--LightGray)] rounded-lg p-2">
+                      Active
+                    </h4>
+                    <label class="inline-flex gap-4 items-center cursor-pointer mt-2">
+                      <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                        active
+                      </span>
+                      <input type="checkbox" value="" class="sr-only peer" />
+                      <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    </label>
+                  </div>
+                </div>
               </>
             )}
 
             <div className="flex justify-between mt-4">
               {step > 1 && (
                 <button
-                  className="px-4 py-2 bg-gray-300 rounded"
+                  className="px-4 py-2 bg-transparent border border-gray-300 rounded-2xl text-gray-400 absolute bottom-2 "
                   onClick={() => setStep(step - 1)}
                 >
                   Back
@@ -344,24 +354,24 @@ const Tabel = () => {
               {step < 3 ? (
                 <button
                   className="px-7
-                   py-2 bg-[var(--main-color)] text-white rounded-3xl"
+                   py-2 bg-[var(--main-color)] text-white rounded-3xl absolute bottom-2 right-2 "
                   onClick={() => setStep(step + 1)}
                 >
                   Next
                 </button>
               ) : (
                 <button
-                  className="px-4 py-2 bg-green-500 text-white rounded"
+                  className="px-4 py-2 bg-[var(--main-color)] text-white rounded-2xl absolute bottom-2 right-2"
                   onClick={handleAddEmployee}
                 >
-                  Add Employee
+                  Apply
                 </button>
               )}
               <button
-                className="px-4 py-2 bg-red-500 text-white rounded"
+                className="px-4 py-2  cancel"
                 onClick={() => setIsModalOpen(false)}
               >
-                Cancel
+                X
               </button>
             </div>
           </div>

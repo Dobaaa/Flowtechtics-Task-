@@ -11,6 +11,7 @@
   --right-icon: rgba(92, 152, 15, 1);
   --delete-icon: rgba(191, 0, 0, 1);
   --backGroundColor: #fafbfc;
+  --LightGray: rgba(248, 248, 248, 1);
 }
 
 body {
