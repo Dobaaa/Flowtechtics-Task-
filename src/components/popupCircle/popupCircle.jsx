@@ -1,27 +1,38 @@
 import React from "react";
 
-const PopupCircle = () => {
+const PopupCircle = ({ FirstCircle, SeconedCircle, ThirdCircle }) => {
   return (
-    <div className="circle-steps flex justify-center  items-center pb-4">
+    <div className="circle-steps flex justify-center items-center pb-4">
+      {/* Personal Data */}
       <div className="personal">
-        <div className="fisrt-circle flex items-center gap-1">
-          <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
-          <hr className="border-t-2 border-blue-400 border-dashed w-[50px]" />
+        <div className="first-circle flex items-center gap-1">
+          <span
+            className={`circle w-[30px] h-[30px] rounded-full ${FirstCircle}`}
+          ></span>
+          <hr className="border-t-2 border-gray-400 border-dashed w-[70px]" />
         </div>
-        <p>personal data </p>
+        <p className="pt-2 text-center">Personal Data</p>
       </div>
+
+      {/* Image */}
       <div className="img">
-        <div className="seconed-circle flex items-center gap-1">
-          <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
-          <hr className="border-t-2 border-blue-400 border-dashed w-[50px]" />
+        <div className="second-circle flex items-center gap-1">
+          <span
+            className={`circle w-[30px] h-[30px] rounded-full ${SeconedCircle}`}
+          ></span>
+          <hr className="border-t-2 border-gray-400 border-dashed w-[70px]" />
         </div>
-        <p>image</p>
+        <p className="pt-2 ">Image</p>
       </div>
+
+      {/* Preview */}
       <div className="preview">
         <div className="third-circle flex">
-          <span className="w-[30px] h-[30px] rounded-full bg-slate-400"></span>
+          <span
+            className={`circle w-[30px] h-[30px] rounded-full ${ThirdCircle}`}
+          ></span>
         </div>
-        <p>preview </p>
+        <p className="pt-2 text-center">Preview</p>
       </div>
     </div>
   );

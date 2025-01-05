@@ -43,3 +43,10 @@
   width: 50%;
   margin-bottom: 10px;
 }
+.tabel-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px !important;
+  height: 30px !important;
+}

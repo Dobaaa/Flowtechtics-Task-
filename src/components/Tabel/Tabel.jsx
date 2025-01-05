@@ -157,9 +157,13 @@ const Tabel = () => {
                 <td className="p-4">{employee.startDate}</td>
                 <td className="p-4">
                   {employee.active ? (
-                    <span className="text-green-500">&#x2714;</span>
+                    <span className="bg-green-500 text-[var(--seconed-color)]  tabel-icon p-1 rounded-full">
+                      &#x2714;
+                    </span>
                   ) : (
-                    <span className="text-red-500">&#x2716;</span>
+                    <span className="bg-red-500 text-[var(--seconed-color)] tabel-icon p-1  rounded-full">
+                      &#x2716;
+                    </span>
                   )}
                 </td>
                 <td className="p-4">
@@ -179,7 +183,11 @@ const Tabel = () => {
             {step === 1 && (
               <>
                 <h2 className="text-lg font-bold mb-4">Personal Data</h2>
-                <PopupCircle />
+                <PopupCircle
+                  FirstCircle="bg-[var(--main-color)] "
+                  SeconedCircle="bg-gray-300  "
+                  ThirdCircle="bg-gray-300  "
+                />
                 <div className="personal-inpts">
                   <label htmlFor="name">
                     name<span className="text-[var(--main-color)]">*</span>
@@ -257,7 +265,11 @@ const Tabel = () => {
             {step === 2 && (
               <>
                 <h2 className="text-lg font-bold mb-4">Upload Image</h2>
-                <PopupCircle />
+                <PopupCircle
+                  FirstCircle="bg-gray-300  "
+                  SeconedCircle="bg-[var(--main-color)] "
+                  ThirdCircle="bg-gray-300 "
+                />
                 <div className="image-upload-inpt text-center">
                   <FontAwesomeIcon
                     icon={faImage}
@@ -287,6 +299,11 @@ const Tabel = () => {
             {step === 3 && (
               <>
                 <h2 className="text-lg font-bold mb-4">Add New employees </h2>
+                <PopupCircle
+                  FirstCircle="bg-gray-300  "
+                  SeconedCircle="bg-gray-300  "
+                  ThirdCircle="bg-[var(--main-color)] "
+                />
                 <div className="preview-info text-start  p-4 mb-6">
                   <h3 className="bg-[var(--LightGray)] rounded-lg p-2 mb-2">
                     Summary
@@ -334,7 +351,11 @@ const Tabel = () => {
                       <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                         active
                       </span>
-                      <input type="checkbox" value="" class="sr-only peer" />
+                      <input
+                        type="checkbox"
+                        value={newEmployee.active}
+                        class="sr-only peer"
+                      />
                       <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                     </label>
                   </div>
