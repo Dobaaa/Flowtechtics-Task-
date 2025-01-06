@@ -21,7 +21,7 @@ const SideBar = () => {
             <FontAwesomeIcon icon={faGaugeSimpleHigh} className="icon" />
             <span>Teams</span>
           </NavLink>
-          <NavLink className="side-bar-link" to={"/"}>
+          <NavLink className="side-bar-link" to={"/employees"}>
             <FontAwesomeIcon icon={faGaugeSimpleHigh} className="icon" />
             <span>Employees</span>
           </NavLink>

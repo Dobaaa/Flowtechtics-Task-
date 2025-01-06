@@ -1,52 +1,13 @@
 import React, { useState } from "react";
-import ItImage from "../../assets/man.png";
 import "./tabel.css";
 import { faImage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PopupCircle from "../popupCircle/popupCircle";
+import { useNavigate } from "react-router-dom";
+import { useEmployees } from "../../Context/EmployeesContext";
+
 const Tabel = () => {
-  const [employees, setEmployees] = useState([
-    {
-      id: 1,
-      name: "Ahmed Ali",
-      img: ItImage,
-      role: "software",
-      email: "example@gmail.com",
-      phone: "013154854841",
-      startDate: "25/12/2024",
-      active: true,
-    },
-    {
-      id: 2,
-      name: "Ahmed Ali",
-      img: ItImage,
-      role: "IT",
-      email: "example@gmail.com",
-      phone: "013154854841",
-      startDate: "25/12/2024",
-      active: false,
-    },
-    {
-      id: 2,
-      name: "Ahmed Ali",
-      img: ItImage,
-      role: "IT",
-      email: "example@gmail.com",
-      phone: "013154854841",
-      startDate: "25/12/2024",
-      active: false,
-    },
-    {
-      id: 2,
-      name: "Ahmed Ali",
-      img: ItImage,
-      role: "IT",
-      email: "example@gmail.com",
-      phone: "013154854841",
-      startDate: "25/12/2024",
-      active: false,
-    },
-  ]);
+  const { employees, setEmployees } = useEmployees();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [step, setStep] = useState(1); // To track steps in the modal
@@ -59,7 +20,7 @@ const Tabel = () => {
     startDate: "",
     active: true,
   });
-
+  const navigate = useNavigate();
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewEmployee({ ...newEmployee, [name]: value });
@@ -91,10 +52,16 @@ const Tabel = () => {
     }
 
     // Add employee if all fields are filled
-    setEmployees([
-      ...employees,
-      { ...newEmployee, id: employees.length + 1, active: true },
-    ]);
+    const updatedEmployee = {
+      ...newEmployee,
+      id: employees.length + 1,
+      active: true,
+    };
+    setEmployees((prevEmployees) => {
+      const updatedList = [...prevEmployees, updatedEmployee];
+      navigate(`/employee/${updatedEmployee.id}`);
+      return updatedList;
+    });
     setIsModalOpen(false);
     setStep(1);
     setNewEmployee({
