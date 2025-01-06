@@ -3,7 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Logo from "../../assets/logo.png";
 import "./SideBar.css";
 import { NavLink } from "react-router-dom";
-import { faGaugeSimpleHigh, faGear } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGaugeSimpleHigh,
+  faGear,
+  faUsers,
+  faUserTie,
+} from "@fortawesome/free-solid-svg-icons";
 
 const SideBar = () => {
   return (
@@ -21,13 +26,13 @@ const SideBar = () => {
           </div>
           <div>
             <NavLink className="side-bar-link" to={"/teams"}>
-              <FontAwesomeIcon icon={faGaugeSimpleHigh} className="icon" />
+              <FontAwesomeIcon icon={faUsers} />
               <span>Teams</span>
             </NavLink>
           </div>
           <div>
             <NavLink className="side-bar-link" to={"/employees"}>
-              <FontAwesomeIcon icon={faGaugeSimpleHigh} className="icon" />
+              <FontAwesomeIcon icon={faUserTie} />
               <span>Employees</span>
             </NavLink>
           </div>
