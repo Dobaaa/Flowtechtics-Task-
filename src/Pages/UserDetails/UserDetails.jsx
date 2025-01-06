@@ -5,16 +5,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const UserDetails = () => {
+  // get Data from Context
   const { id } = useParams();
   const { employees } = useEmployees();
   const employee = employees.find((emp) => emp.id === parseInt(id));
 
   if (!employee) {
-    return <p>Employee not found!</p>;
+    return <p className="p-3">Employee not found!</p>;
   }
 
   return (
     <div className="p-3">
+      {/* employ head*/}
       <div className="employ-head p-4 flex items-center justify-between">
         <div className="flex gap-2">
           <strong>
@@ -26,7 +28,7 @@ const UserDetails = () => {
           Edit employee
         </button>
       </div>
-
+      {/* suamry*/}
       <div className="personal bg-[var(--seconed-color)]  rounded-2xl p-5">
         <h3 className="bg-[var(--LightGray)] rounded-lg p-2 mb-2">Summary</h3>
         <div className="sumary w-[50%] ">
@@ -61,7 +63,7 @@ const UserDetails = () => {
           </div>
         </div>
       </div>
-
+      {/* Date and Active */}
       <div className="more-details  flex justify-evenly p-4">
         <div className="date w-[40%] bg-[var(--seconed-color)]  rounded-2xl">
           <h4 className="bg-[var(--LightGray)] rounded-lg p-2">Date</h4>

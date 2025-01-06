@@ -10,28 +10,24 @@
   justify-content: center;
 }
 
-.Side-links {
-  width: 90%; /* يجعل الحاوية تأخذ العرض الكامل */
-}
-
 .side-bar-link {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: end !important;
-  width: 100%; /* يجعل الرابط يأخذ العرض الكامل */
+  width: 100%;
   padding: 10px;
   gap: 10px;
   margin-bottom: 20px;
   color: var(--seconed-color);
-  text-decoration: none; /* إزالة التسطير أسفل النص */
+  text-decoration: none;
   transition: 0.3s;
   border-radius: 11px;
 }
 
 .side-bar-link:hover {
   color: var(--main-color);
-  background-color: var(--seconed-color); /* إضافة تأثير عند التمرير */
+  background-color: var(--seconed-color);
 }
 
 .Side .active {
@@ -46,3 +42,14 @@
 .icon {
   font-size: 24px;
 }
+
+/* Start Responsive Areea*/
+@media only screen and (max-width: 600px) {
+  .side-bar-link span {
+    display: none;
+  }
+  .Side {
+    padding: 10px;
+  }
+}
+/* End Responsive Areea*/

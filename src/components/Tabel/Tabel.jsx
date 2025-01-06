@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import "./tabel.css";
-import { faImage } from "@fortawesome/free-solid-svg-icons";
+/* FontAwesome Icons  */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faImage,
+  faRetweet,
+  faTrashCan,
+} from "@fortawesome/free-solid-svg-icons";
 import PopupCircle from "../popupCircle/popupCircle";
 import { useNavigate } from "react-router-dom";
+/* use Context to get  Data */
 import { useEmployees } from "../../Context/EmployeesContext";
 
 const Tabel = () => {
-  const { employees, setEmployees } = useEmployees();
-
+  const { employees, setEmployees } = useEmployees(); // use Context to acsses Data
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [step, setStep] = useState(1); // To track steps in the modal
   const [newEmployee, setNewEmployee] = useState({
@@ -21,11 +26,13 @@ const Tabel = () => {
     active: true,
   });
   const navigate = useNavigate();
+
+  //make currebt value
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewEmployee({ ...newEmployee, [name]: value });
   };
-
+  // image function
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -77,20 +84,21 @@ const Tabel = () => {
 
   return (
     <div className="p-6">
-      <div className="flex items-center justify-between mb-4">
+      {/* tabel head*/}
+      <div className="flex items-center justify-between mb-4 gap-2">
         <input
           type="text"
           placeholder="Search employees"
           className="w-[80%] p-2 border rounded-2xl shadow-sm"
         />
         <button
-          className="bg-[var(--main-color)] text-white px-4 py-2 rounded-2xl"
+          className="bg-[var(--main-color)] text-white px-4 py-2 rounded-2xl text-xs md:text-lg whitespace-nowrap"
           onClick={() => setIsModalOpen(true)}
         >
           + New Employees
         </button>
       </div>
-
+      {/* tabel */}
       <div className="overflow-x-auto bg-white rounded-lg shadow-md">
         <table className="min-w-full table-auto">
           <thead>
@@ -143,7 +151,7 @@ const Tabel = () => {
           </tbody>
         </table>
       </div>
-
+      {/* Popup Area*/}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
           <div className="bg-white p-6 rounded-lg shadow-lg w-[400px] popup-box">
@@ -187,7 +195,7 @@ const Tabel = () => {
                   <select
                     id="role"
                     name="role"
-                    className="w-full p-2 mb-2 border rounded-2xl focus:outline-none mb-[25px]"
+                    className="w-full p-2  border rounded-2xl focus:outline-none mb-[25px]"
                     value={newEmployee.role}
                     onChange={handleInputChange}
                   >
@@ -238,29 +246,69 @@ const Tabel = () => {
                   ThirdCircle="bg-gray-300 "
                 />
                 <div className="image-upload-inpt text-center">
-                  <FontAwesomeIcon
-                    icon={faImage}
-                    className="text-[var(--main-color)] text-2xl p-3"
-                  />
-                  <label htmlFor="file" className="custom-label">
-                    + Add image
-                  </label>
-                  <input
-                    id="file"
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="w-full p-12 mb-4 border rounded img-btn "
-                  />
+                  {newEmployee.img ? (
+                    <div className="flex justify-center gap-3 items-center">
+                      <img
+                        src={newEmployee.img}
+                        alt="Preview"
+                        className="w-40 h-20 rounded-3xl "
+                      />
+                      <div className="img-info ">
+                        <h4>image.png</h4>
+                        <div className="img-action flex gap-2">
+                          <div className=" flex items-center gap-2 text-[var(--LightGray)]">
+                            <FontAwesomeIcon
+                              icon={faRetweet}
+                              className="text-[var(--main-color)]"
+                            />
+                            <label
+                              htmlFor="changee"
+                              className="cursor-pointer z-10"
+                            >
+                              change
+                            </label>
+                            <input
+                              id="changee"
+                              type="file"
+                              accept="image/*"
+                              onChange={handleImageUpload}
+                              className="w-full p-12 mb-4 border rounded img-btn "
+                            />
+                          </div>
+                          <button
+                            className=" flex items-center gap-2 text-[var(--LightGray)]"
+                            onClick={() =>
+                              setNewEmployee((prev) => ({ ...prev, img: null }))
+                            }
+                          >
+                            <FontAwesomeIcon
+                              icon={faTrashCan}
+                              className="text-[var(--main-color)]"
+                            />
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <FontAwesomeIcon
+                        icon={faImage}
+                        className="text-[var(--main-color)] text-2xl p-3"
+                      />
+                      <label htmlFor="file" className="custom-label">
+                        + Add image
+                      </label>
+                      <input
+                        id="file"
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="w-full p-12 mb-4 border rounded img-btn "
+                      />
+                    </>
+                  )}
                 </div>
-
-                {newEmployee.img && (
-                  <img
-                    src={newEmployee.img}
-                    alt="Preview"
-                    className="w-20 h-20 rounded-full mx-auto "
-                  />
-                )}
               </>
             )}
             {step === 3 && (
