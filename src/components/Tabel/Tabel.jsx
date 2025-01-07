@@ -82,6 +82,21 @@ const Tabel = () => {
     });
   };
 
+  //handel delete
+  const handleDeleteEmployee = (id) => {
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this employee?"
+    );
+    if (confirmDelete) {
+      setEmployees((prevEmployees) =>
+        prevEmployees.filter((employee) => employee.id !== id)
+      );
+    }
+  };
+  // move to details Page
+  const handleUserClick = (id) => {
+    navigate(`/employee/${id}`); // انتقل إلى صفحة التفاصيل مع تمرير الـ ID
+  };
   return (
     <div className="p-6">
       {/* tabel head*/}
@@ -118,7 +133,10 @@ const Tabel = () => {
                 key={employee.id}
                 className="text-sm text-gray-700 hover:bg-gray-50"
               >
-                <td className="p-4 flex items-center gap-3">
+                <td
+                  className="p-4 flex items-center gap-3"
+                  onClick={() => handleUserClick(employee.id)}
+                >
                   <img
                     src={employee.img}
                     alt="profile"
@@ -142,7 +160,10 @@ const Tabel = () => {
                   )}
                 </td>
                 <td className="p-4">
-                  <button className="text-red-500 hover:text-red-700">
+                  <button
+                    className="text-red-500 hover:text-red-700"
+                    onClick={() => handleDeleteEmployee(employee.id)}
+                  >
                     🗑️
                   </button>
                 </td>
