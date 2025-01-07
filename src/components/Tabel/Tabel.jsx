@@ -134,7 +134,7 @@ const Tabel = () => {
                 className="text-sm text-gray-700 hover:bg-gray-50"
               >
                 <td
-                  className="p-4 flex items-center gap-3"
+                  className="p-4 flex items-center gap-3 cursor-pointer"
                   onClick={() => handleUserClick(employee.id)}
                 >
                   <img
